@@ -1,0 +1,26 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using Autodesk.Revit.DB;
+using Autodesk.Revit.UI;
+
+namespace RevitCommand
+{
+	public class Event : IExternalEventHandler
+	{
+		public string GetName()
+		{
+			return "Event";
+		}
+
+		public void Execute(UIApplication app)
+		{
+			UIDocument uiDoc = app.ActiveUIDocument;
+			Document doc = uiDoc.Document;
+			AddinForm addinForm = new AddinForm();
+			addinForm.Show();
+		}
+	}
+}
