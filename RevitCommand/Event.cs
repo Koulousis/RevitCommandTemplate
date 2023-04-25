@@ -10,6 +10,9 @@ namespace RevitCommand
 {
 	public class Event : IExternalEventHandler
 	{
+		public delegate void AfterEventRaised();
+		public event AfterEventRaised OnAfterEventRaised;
+
 		public string GetName()
 		{
 			return "Event";
@@ -19,8 +22,20 @@ namespace RevitCommand
 		{
 			UIDocument uiDoc = app.ActiveUIDocument;
 			Document doc = uiDoc.Document;
-			AddinForm addinForm = new AddinForm();
-			addinForm.Show();
+
+			switch (AddinForm.EventFlag)
+			{
+				case EventRaised.Event1:
+					TaskDialog.Show("Event1", "Event1 Raised.");
+					AddinForm.EventFlag = EventRaised.NoEvent;
+					break;
+				case EventRaised.Event2:
+					TaskDialog.Show("Event2", "Event2 Raised.");
+					OnAfterEventRaised?.Invoke();
+					AddinForm.EventFlag = EventRaised.NoEvent;
+					break;
+			}
 		}
 	}
+	
 }
