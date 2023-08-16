@@ -62,6 +62,6 @@
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
-    <PostBuildEvent>if exist "J:\Drawings REVIT FAMILIES\02 NEW\Aris\Addins\PetersimeV2\DLLs" copy "$(ProjectDir)$(OutputPath)$(TargetFileName)" "J:\Drawings REVIT FAMILIES\02 NEW\Aris\Addins\PetersimeV2\DLLs"</PostBuildEvent>
+    <PostBuildEvent>if exist "J:\Drawings REVIT FAMILIES\02 NEW\Aris\Addins\PetersimeV2\TestDLLs" copy "$(ProjectDir)$(OutputPath)$(TargetFileName)" "J:\Drawings REVIT FAMILIES\02 NEW\Aris\Addins\PetersimeV2\DLLs"</PostBuildEvent>
   </PropertyGroup>
 </Project>
