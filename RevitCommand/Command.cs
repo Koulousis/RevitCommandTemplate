@@ -12,7 +12,6 @@ namespace RevitCommand
 	[Transaction(TransactionMode.ReadOnly)]
 	public class Command : IExternalCommand
 	{
-
 		public Result Execute(ExternalCommandData commandData, ref string message, ElementSet elements)
 		{
 			//Access revitEvent through addinForm using formEvent.Raise()
